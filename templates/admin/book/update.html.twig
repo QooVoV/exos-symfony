@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un Livre{% endblock %}
+
+{% block main %}
+
+<h2>Modifier les données d'un livre</h2>
+
+<form method="POST">
+  <div>
+    <label for="title">Titre : </label>
+    <input type="text" name="title" id="title" value="{{ book.title }}">
+  </div>
+  <div>
+    <label for="price">Prix : </label>
+    <input type="number" name="price" id="price" step="0.01" value="{{ book.price }}">
+  </div>
+  <div>
+    <label for="description">Description : </label>
+    <textarea name="description" id="description" cols="30" rows="10">{{ book.description }}</textarea>
+  </div>
+  <div>
+    <label for="imageUrl">Image : </label>
+    <input type="text" name="imageUrl" id="imageUrl" value="{{ book.imageUrl }}">
+  </div>
+  <button type="submit">Modifier</button>
+  <button><a href="{{ path('app_admin_book_delete', {'id': book.id}) }}">Supprimer</a></button>
+</form>
+
+
+{% endblock %}

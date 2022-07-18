@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier une Catégorie{% endblock %}
+
+{% block main %}
+
+<h2>Modifier les données d'une categorie</h2>
+
+<form method="POST">
+  <div>
+    <label for="name">Nom: </label>
+    <input type="text" name="name" id="name" value="{{ category.name }}">
+  </div>
+  <button type="submit">Modifier</button>
+  <button><a href="{{ path('app_admin_category_delete', {'id': category.id}) }}">Supprimer</a></button>
+</form>
+
+
+{% endblock %}

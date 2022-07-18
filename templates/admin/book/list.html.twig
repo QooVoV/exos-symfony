@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Livres{% endblock %}
+
+{% block main %}
+
+<h2>Liste des livres</h2>
+
+<div class="booksListContainer">
+
+  {% for book in books %}
+    <div>
+      <li>Id : {{ book.id }}</li>
+    </div>
+    <div>
+        <li>Titre : {{ book.title }}</li>
+    </div>
+    <div>
+        <li>Prix : {{ book.price }}</li>
+    </div>
+    <div>
+      <button type="submit"><a href="{{ path('app_admin_book_update', {'id': book.id}) }}">Modifier ou Supprimer</a></button>
+    </div>
+    {% endfor %}
+
+</div>
+
+<button><a href="{{ path('app_admin_book_addNew') }}">Ajouter un nouveau livre</a></button>
+
+
+{% endblock %}

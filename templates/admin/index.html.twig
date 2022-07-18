@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil Admin{% endblock %}
+
+{% block main %}
+
+<h2>Menu des actions possibles en tant qu'Admin</h2>
+
+<button><a href="{{ path('app_admin_author_addNew') }}">Ajouter un nouvel auteur</a></button>
+
+<button><a href="{{ path('app_admin_author_list') }}">Liste des auteurs</a></button>
+
+<button><a href="{{ path('app_admin_category_addNew') }}">Ajouter une nouvelle catégories</a></button>
+
+<button><a href="{{ path('app_admin_category_list') }}">Liste des catégories</a></button>
+
+<button><a href="{{ path('app_admin_book_addNew') }}">Ajouter un nouveau livre</a></button>
+
+<button><a href="{{ path('app_admin_book_list') }}">Liste des livres</a></button>
+
+{% endblock %}
