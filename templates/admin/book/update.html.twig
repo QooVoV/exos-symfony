@@ -6,7 +6,7 @@
 
 <h2>Modifier les données d'un livre</h2>
 
-<form method="POST">
+{# <form method="POST">
   <div>
     <label for="title">Titre : </label>
     <input type="text" name="title" id="title" value="{{ book.title }}">
@@ -25,7 +25,12 @@
   </div>
   <button type="submit">Modifier</button>
   <button><a href="{{ path('app_admin_book_delete', {'id': book.id}) }}">Supprimer</a></button>
-</form>
+</form> #}
+
+{{ form(view) }}
+<button><a href="{{ path('app_admin_book_delete', {'id': book.id}) }}">Supprimer</a></button>
+
+<a href="{{ path('app_admin_index') }}">Retour à l'accueil</a>
 
 
 {% endblock %}
