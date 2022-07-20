@@ -3,8 +3,11 @@
 namespace App\Form;
 
 use App\Entity\Book;
+use App\Entity\Author;
+use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -31,6 +34,20 @@ class BookType extends AbstractType
             ])
             ->add('imageUrl', UrlType::class, [
                 'label'=> "Couverture(s) : ",
+                'required'=> false
+            ])
+            ->add('author', EntityType::class, [
+                'class'=> Author::class,
+                'choice_label'=> 'name',
+                'label'=> "Auteur : ",
+                'required'=> false
+            ])
+            ->add('categories', EntityType::class, [
+                'class'=> Category::class,
+                'choice_label'=> 'name',
+                'label'=> "Catégorie(s) : ",
+                'multiple'=> true,
+                'expanded'=> true,
                 'required'=> false
             ])
             ->add('send', SubmitType::class, [

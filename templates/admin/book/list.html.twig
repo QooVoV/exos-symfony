@@ -19,6 +19,12 @@
         <li>Prix : {{ book.price }}</li>
     </div>
     <div>
+        <li>Auteur : {{ book.author.name }}</li>
+    </div>
+     <div>
+        <li>Catégorie(s): {% for category in book.categories %} <p>{{category.name}}</p> {% endfor %}</li> 
+    </div>
+    <div>
       <button type="submit"><a href="{{ path('app_admin_book_update', {'id': book.id}) }}">Modifier ou Supprimer</a></button>
     </div>
     {% endfor %}
