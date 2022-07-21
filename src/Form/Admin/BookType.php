@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Book;
 use App\Entity\Author;
 use App\Entity\Category;
+use App\Entity\PublishingHouse;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -48,6 +49,12 @@ class BookType extends AbstractType
                 'label'=> "Catégorie(s) : ",
                 'multiple'=> true,
                 'expanded'=> true,
+                'required'=> false
+            ])
+            ->add('publishingHouse', EntityType::class, [
+                'class'=> PublishingHouse::class,
+                'choice_label'=> 'name',
+                'label' => "Maison d'édition : ",
                 'required'=> false
             ])
             ->add('send', SubmitType::class, [
