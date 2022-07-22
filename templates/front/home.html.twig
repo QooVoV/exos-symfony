@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block header %}
+
+<nav>
+  <button><a href="{{ path('app_admin_author_list') }}">Liste des auteurs</a></button>
+
+  <button><a href="{{ path('app_admin_category_list') }}">Liste des catégories</a></button>
+
+  <button><a href="{{ path('app_admin_book_list') }}">Liste des livres</a></button>
+
+  <button><a href="{{ path('app_admin_publishingHouse_list') }}">Liste des maisons d'édition</a></button>
+</nav>
+
+{% endblock %}
+
+{% block main %}
+
+<h2>Bienvenue</h2>
+
+{% for book in books %}
+  <div>
+      <li>Prix : {{ book.price }} €</li>
+  </div>
+  <div>
+      <li>Titre : {{ book.title }}</li>
+  </div>
+  <div>
+    <li>Auteur : {{ book.author.name }}</li>
+  </div>
+  <div>
+    <li>Catégorie(s): 
+      {% for category in book.categories %} 
+        <a href="{{ path('app_front_category', {id: category.id}) }}">{{ category.name }}</a> 
+      {% endfor %}
+    </li> 
+  </div>
+
+{% endfor %}
+
+{% endblock %}

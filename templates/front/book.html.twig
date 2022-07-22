@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du livre{% endblock %}
+
+{% block main %}
+
+<h2>Détail du livre : {{ book.title }}</h2>
+
+  <div>
+      <li>Prix : {{ book.price }} €</li>
+  </div>
+  <div>
+      <li>Auteur : {{ book.author.name }}</li>
+  </div>
+   <div>
+      <li>Image : {{ book.imageUrl }}</li>
+  </div>
+
+{% endblock %}

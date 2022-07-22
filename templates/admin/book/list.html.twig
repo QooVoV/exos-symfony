@@ -6,7 +6,7 @@
 
 <h2>Liste des livres</h2>
 
-<div class="booksListContainer">
+<div>
 
   {% for book in books %}
     <div>
@@ -16,7 +16,7 @@
         <li>Titre : {{ book.title }}</li>
     </div>
     <div>
-        <li>Prix : {{ book.price }}</li>
+        <li>Prix : {{ book.price }} €</li>
     </div>
     <div>
         <li>Auteur : {{ book.author.name }}</li>

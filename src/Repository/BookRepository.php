@@ -2,9 +2,10 @@
 
 namespace App\Repository;
 
+
 use App\Entity\Book;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 
 /**
  * @extends ServiceEntityRepository<Book>
@@ -37,6 +38,51 @@ class BookRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    }
+
+    public function findAllByTitle(): array {
+        $queryBuilder = $this->createQueryBuilder('book');
+
+        return $queryBuilder 
+            ->orderBy('book.title', 'DESC')
+            ->setMaxResults(20)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAllByPrice(): array {
+        $queryBuilder = $this->createQueryBuilder('book');
+
+        return $queryBuilder 
+            ->orderBy('book.price', 'DESC')
+            ->setMaxResults(20)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAllByAuthor(int $id): array {
+        $queryBuilder = $this->createQueryBuilder('book');
+
+        return $queryBuilder 
+            ->orderBy('author.name', 'DESC')
+            ->leftJoin('book.author', 'author')
+            ->andWhere('author.id = :id')
+            ->setParameter('id', $id)
+            ->setMaxResults(20)
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findAllByCategory(int $id): array {
+        $queryBuilder = $this->createQueryBuilder('book');
+
+        return $queryBuilder 
+            ->orderBy('book.title', 'DESC')
+            ->leftJoin('book.categories', 'category')
+            ->andWhere('category.id = :id')
+            ->setParameter('id', $id)
+            ->getQuery()
+            ->getResult();
     }
 
 //    /**

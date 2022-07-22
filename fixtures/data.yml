@@ -1,0 +1,127 @@
+App\Entity\Category:
+  category_1:
+    name: "Manga - Seinen"
+  category_2:
+    name: "Manga - Shôjo"
+  category_3:
+    name: "Littérature"
+  category_4:
+    name: "Policier"
+  category_5:
+    name: "Science-Fiction"
+  category_6:
+    name: "Fantasy"
+  category_7:
+    name: "Cuisine"
+  category_{8..15}:
+    name: <fr_FR:word()>
+
+App\Entity\Author:
+  author_1:
+    name: "Naoki Urasawa"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+  author_2:
+    name: "CLAMP"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+  author_3:
+    name: "Thibaud Villanova"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+  author_4:
+    name: "Agatha Christie"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+  author_5:
+    name: "Isaac Asimov"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+  author_6:
+    name: "J.R.R. Tolkien"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+  author_7:
+    name: "Eric-Emmanuel Schmitt"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+  author_{8..50}:
+    name: <name()>
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+
+App\Entity\PublishingHouse:
+  publishingHouse_1:
+    name: "Kana"
+    description: <fr_FR:realText()>
+    country: "France"
+  publishingHouse_2:
+    name: "Pika"
+    description: <fr_FR:realText()>
+    country: "France"
+  publishingHouse_3:
+    name: "Albin Michel"
+    description: <fr_FR:realText()>
+    country: "France"
+  publishingHouse_4:
+    name: "Folio"
+    description: <fr_FR:realText()>
+    country: "France"
+  publishingHouse_5:
+    name: "Hachette"
+    description: <fr_FR:realText()>
+    country: "France"
+  publishingHouse_6:
+    name: "J'ai Lu"
+    description: <fr_FR:realText()>
+    country: "France"
+  publishingHouse_7:
+    name: "Le Masque"
+    description: <fr_FR:realText()>
+    country: "France"
+  publishingHouse_{8..50}:
+    name: <fr_FR:company()>
+    description: <fr_FR:realText()>
+    country: <country()>
+
+App\Entity\Book:
+  book_1:
+    title: "Monster"
+    price: "15.9"
+    author: "@author_1"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+    publishingHouse: "@publishingHouse_1"
+    categories: ["@category_1"]
+  book_2:
+    title: "ABC contre Poirot"
+    price: "5.49"
+    author: "@author_4"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+    publishingHouse: "@publishingHouse_7"
+    categories: ["@category_4"]
+  book_3:
+    title: "La part de l'autre"
+    price: "21.8"
+    author: "@author_7"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+    publishingHouse: "@publishingHouse_3"
+    categories: ["@category_3"]
+  book_4:
+    title: "Gastronogeek"
+    price: "24.95"
+    author: "@author_3"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+    publishingHouse: "@publishingHouse_5"
+    categories: ["@category_7"]
+  book_{5..100}:
+    title: <fr_FR:catchPhrase()>
+    price: <randomFloat(2, 4, 50)>
+    author: "@author_*"
+    description: <fr_FR:realText()>
+    imageUrl: <imageUrl()>
+    publishingHouse: "@publishingHouse_*"
+    categories: ["@category_*"]
